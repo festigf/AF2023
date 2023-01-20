@@ -1,0 +1,14 @@
+
+<button (click)="onClick()">saluto</button>
+
+messaggio Di Saluto:{{messaggioDiSaluto}}
+<hr>
+
+contatore:{{contatore}}<button (click)="onInc()">inc</button>
+
+<hr>
+<app-altra></app-altra>
+
+<hr>
+<app-esempio-evento [datoDiInput]="contatore" (eventEmitter)="gestoreEvento($event)">
+</app-esempio-evento>

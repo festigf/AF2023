@@ -1,0 +1,9 @@
+<input type="text" [(ngModel)]="persona.nominativo">
+<input type="text" [(ngModel)]="persona.importo">
+<button (click)="add(persona)">add</button>
+
+
+<hr>
+<div *ngFor="let persona of persone; let i = index">
+  <app-view-persona [persona]="persona"></app-view-persona>
+</div>
