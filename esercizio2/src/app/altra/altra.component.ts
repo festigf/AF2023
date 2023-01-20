@@ -8,9 +8,17 @@ import { DatiService } from '../services/dati.service';
 })
 export class AltraComponent {
   contatore:number=0;
+  
   constructor(private datiService:DatiService){
+
   }
   onGetContatore(){
-    this.contatore=this.datiService.getContatore();
+    this.contatore=this.datiService.getContatore() + 1000;
+
+    this.datiService.subject$.subscribe(
+      res => {
+        this.contatore=res;    
+      }
+    );
   }
 }

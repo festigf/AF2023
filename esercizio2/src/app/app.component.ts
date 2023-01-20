@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Post } from './domain/Post';
 import { DatiService } from './services/dati.service';
 
 @Component({
@@ -8,24 +10,44 @@ import { DatiService } from './services/dati.service';
 })
 export class AppComponent {
   title = 'esercizio2';
-  messaggioDiSaluto: string="";
-  contatore: number=0;
+  messaggioDiSaluto: string = "";
+  contatore: number = 0;
+  visualizza: boolean = false;
+  posts$?: Observable<Post[]>;
+  datiPosts: Post[] = [];
   //dichiarazione dell'oggetto datiService, di tipo DatiService,
   //con riferimento al service istanziato dal framework.
-  constructor(private datiService: DatiService){
+
+  constructor(private datiService: DatiService) {
+    this.posts$ = this.datiService.posts$; // stateless
+    // this.datiService.posts$.subscribe(
+    //   res => {
+    //     this.datiPosts = res; // statefull
+    //   })
     //this.messaggioDiSaluto= this.datiService.getSaluto();
+    this.datiService.subject$.subscribe(
+      res => {
+        this.contatore = res;
+      }
+    )
   }
-  
+
   //datiService: DatiService=new DatiService();
 
-  onClick(){
-    this.messaggioDiSaluto= this.datiService.getSaluto();
+  onClick() {
+    this.messaggioDiSaluto = this.datiService.getSaluto();
   }
-  onInc(){
+  onInc() {
     this.datiService.inc();
-    this.contatore= this.datiService.getContatore();
+    // this.datiService.subject$.next(this.datiService.getContatore());
+
+    //this.contatore= this.datiService.getContatore();
   }
-  gestoreEvento(valore:number){
-    this.contatore=valore;
+  gestoreEvento(valore: number) {
+    this.contatore = valore;
+  }
+
+  onVisualizza() {
+    this.visualizza = !this.visualizza;
   }
 }

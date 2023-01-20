@@ -1,4 +1,4 @@
-
+<!-- 
 <button (click)="onClick()">saluto</button>
 
 messaggio Di Saluto:{{messaggioDiSaluto}}
@@ -11,4 +11,11 @@ contatore:{{contatore}}<button (click)="onInc()">inc</button>
 
 <hr>
 <app-esempio-evento [datoDiInput]="contatore" (eventEmitter)="gestoreEvento($event)">
-</app-esempio-evento>
+</app-esempio-evento> -->
+<button (click)="onVisualizza()">vis/nascondi</button>
+
+<div *ngIf="visualizza">
+    <div *ngFor="let post of posts$ | async">
+        {{post.userId}} - {{post.id}} - {{post.title}}
+    </div>
+</div>

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { AltraComponent } from './altra/altra.component';
 import { EsempioEventoComponent } from './esempio-evento/esempio-evento.component';
@@ -12,7 +12,8 @@ import { EsempioEventoComponent } from './esempio-evento/esempio-evento.componen
     EsempioEventoComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
