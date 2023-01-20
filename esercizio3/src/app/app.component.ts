@@ -15,5 +15,5 @@ export class AppComponent {
   
   constructor(private dati:DatiService){
     this.posts$=this.dati.posts$;
-  }
+    }
 }
