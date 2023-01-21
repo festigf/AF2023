@@ -18,13 +18,10 @@ export class AutoDecrementoComponent {
 
   autoDec(){
     const autoSaveInterval = setInterval(() => {
-      let persona: Persona ;
-      persona= this.dati.getPersona();
-      persona.importo-=10;
-      this.dati.setPersona(persona);
-      if (persona.importo <0){
+      this.dati.update_importo(-10);
+      if (this.dati.getPersona().importo <0){
         this.statoPositivo=false;
-        this.dati.subject$.next(persona);
+        this.dati.subject$.next(this.dati.getPersona());
       }
       else{
         this.statoPositivo=true;

@@ -1,5 +1,5 @@
-<div *ngIf="isAllarme" class="allarme">
-    <!-- <div [ngClass]="{allarme:isAllarme}"> -->
-        {{ persona.nominativo}} - {{ persona.importo}}
-    <!-- </div> -->
+<!-- https://ultimatecourses.com/blog/angular-ngif-async-pipe -->
+
+<div [ngClass]="{allarme:(dati.subject$| async)?.importo}" class="allarme">
+    {{ (dati.subject$| async)?.nominativo}}  {{ (dati.subject$| async)?.importo}} 
 </div>

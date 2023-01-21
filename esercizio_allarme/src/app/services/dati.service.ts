@@ -16,4 +16,7 @@ export class DatiService {
   setPersona(persona : Persona){
     return this.persona=persona;
   }
+  update_importo(valore : number){
+    this.persona.importo+=valore;
+  }
 }
