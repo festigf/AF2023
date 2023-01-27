@@ -27,6 +27,7 @@ export class AppComponent {
       this.libri$=this.datiService.getAll()
 
     });
+   // console.log("ho cancellato il libro")
   }
   update(libro:Libro){
     this.libro=libro;

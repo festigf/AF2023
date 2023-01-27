@@ -9,7 +9,7 @@ import { Libro } from './libro';
 export class DatiService {
   url : string =  "http://localhost:8099/api/libri"
   constructor(private http:HttpClient) { }
-
+ // crud
   getAll(): Observable<Libro[]>{
     return this.http.get<Libro[]>(this.url);
   }

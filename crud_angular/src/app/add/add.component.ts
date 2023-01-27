@@ -34,10 +34,11 @@ export class AddComponent implements OnInit {
       this.datiService.update(libro).subscribe(res => 
         {
           this.fatto.emit(true);
-        },
-        err =>{
-          // gestione errore
-        })
+         }//,
+        // err =>{
+        //   // gestione errore
+        // }
+        )
     else this.datiService.add(libro).subscribe(res => 
       {
         this.fatto.emit(true);
