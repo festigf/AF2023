@@ -13,7 +13,7 @@ export class AppComponent {
   title = 'crud';
   libri$? : Observable<Libro[]>;
   isAdd:boolean=false;
-  libro?: Libro;//=new Libro();
+  libro?: Libro=new Libro();
   constructor(public datiService:DatiService){
     this.libri$=this.datiService.getAll()
   }

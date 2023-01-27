@@ -7,7 +7,7 @@ import { Libro } from './libro';
   providedIn: 'root'
 })
 export class DatiService {
-  url : string =  "http://localhost:8080/api/libri"
+  url : string =  "http://localhost:8099/api/libri"
   constructor(private http:HttpClient) { }
 
   getAll(): Observable<Libro[]>{
