@@ -12,6 +12,7 @@ export class AutoDecrementoComponent {
 
   statoPositivo:boolean=true;
   subject$?: Subject<Persona>;
+  
   constructor(public dati:DatiService){
     
   }

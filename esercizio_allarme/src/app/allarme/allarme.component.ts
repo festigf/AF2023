@@ -14,6 +14,7 @@ export class AllarmeComponent {
 
     // this.dati.subject$.subscribe(
     //   res => {
+      
     //     console.log(res);
     //     this.persona=res;
     //     this.isAllarme=true

@@ -16,4 +16,8 @@ export class AppComponent {
   constructor(private dati:DatiService){
     this.posts$=this.dati.posts$;
     }
+  // dati:DatiService=new DatiService();
+  // constructor(){
+  //      this.posts$=this.dati.posts$;
+  // }
 }
