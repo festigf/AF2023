@@ -1,0 +1,16 @@
+<h2>Add libro</h2>
+<form [formGroup]="librofrm" (ngSubmit)="onSubmit(librofrm.value)">
+    <input type="input" id="id" placeholder="id" formControlName="id" hidden>
+    <div>Titolo:
+        <input type="input" id="titolo" placeholder="titolo" formControlName="titolo">
+    </div>
+    <div>Autore:
+        <input type="input" id="autore" placeholder="autore" formControlName="autore">
+    </div>
+    <div>Prezzo: 
+        <input type="input" id="prezzoCopertina" placeholder="prezzo di Copertina" formControlName="prezzoCopertina">
+    </div>
+    <br>
+    <button type="submit">Salva</button>
+    <button (click)="annulla()">Annulla</button>
+</form>
