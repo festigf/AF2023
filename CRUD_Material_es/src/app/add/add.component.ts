@@ -6,6 +6,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 
 import { DatiService } from '../dati.service';
 import { Libro } from '../libro';
+
 const listMsg = {
   titolorequired: "Il titolo è richiesto.",
   titolominlength: "Il titolo deve deve avere almeno 4 caratteri",
@@ -32,7 +33,7 @@ export class AddComponent implements OnInit {
 
   numberValidator(control: FormControl) {
     if (!isNaN(control?.value)) {
-      console.log(2 * (control?.value))
+      //console.log(2 * (control?.value))
       if ((1 * (control?.value)) <= 0){
         return {
           //required: true
