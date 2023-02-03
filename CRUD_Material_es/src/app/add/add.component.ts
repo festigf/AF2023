@@ -33,7 +33,7 @@ export class AddComponent implements OnInit {
 
   numberValidator(control: FormControl) {
     if (!isNaN(control?.value)) {
-      //console.log(2 * (control?.value))
+      console.log(1 * (control?.value))
       if ((1 * (control?.value)) <= 0){
         return {
           //required: true
@@ -41,8 +41,9 @@ export class AddComponent implements OnInit {
         }
       }
       else return {
-        //required: false
-        minorezero: false
+        required: false,
+        minorezero: false,
+        number: false
       }
 
     }
