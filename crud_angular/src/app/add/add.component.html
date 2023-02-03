@@ -11,6 +11,6 @@
         <input type="input" id="prezzoCopertina" placeholder="prezzo di Copertina" formControlName="prezzoCopertina">
     </div>
     <br>
-    <button type="submit">Salva</button>
+    <button type="submit"  [disabled]="!librofrm.valid">Salva</button>
     <button (click)="annulla()">Annulla</button>
 </form>

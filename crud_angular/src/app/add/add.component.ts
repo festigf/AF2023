@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { DatiService } from '../dati.service';
 import { Libro } from '../libro';
@@ -23,7 +23,7 @@ export class AddComponent implements OnInit {
     console.log(this.libro)
     this.librofrm= this.fb.group({
       id: [this.libro.id],
-      'titolo':[this.libro.titolo],
+      'titolo':[this.libro.titolo, Validators.required],
       'autore':[this.libro.autore],
       'prezzoCopertina':[this.libro.prezzoCopertina]
     });
