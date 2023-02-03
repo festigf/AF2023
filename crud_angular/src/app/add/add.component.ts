@@ -23,9 +23,9 @@ export class AddComponent implements OnInit {
     console.log(this.libro)
     this.librofrm= this.fb.group({
       id: [this.libro.id],
-      'titolo':[this.libro.titolo, Validators.required],
-      'autore':[this.libro.autore],
-      'prezzoCopertina':[this.libro.prezzoCopertina]
+      'titolo':new FormControl(this.libro.titolo,[ Validators.required, Validators.minLength(4)]),
+      'autore':new FormControl(this.libro.autore,[ Validators.required]),
+      'prezzoCopertina':new FormControl([this.libro.prezzoCopertina])
     });
   }
 
