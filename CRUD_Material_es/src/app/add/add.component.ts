@@ -1,8 +1,10 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { AbstractControl, FormControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { NumberValidatorsService } from 'app/NumberValidatorsService';
+
 
 import { DatiService } from '../dati.service';
 import { Libro } from '../libro';
@@ -12,7 +14,8 @@ const listMsg = {
   titolominlength: "Il titolo deve deve avere almeno 4 caratteri",
   autorerequired: "Il campo autore è obbligatorio.",
   prezzoCopertinarequired: "Il prezzo di copertina deve essere inserito > 0.",
-  prezzoCopertinaminorezero: "Deve essere maggiore di 0"
+  prezzoCopertinamin: "Deve essere maggiore di 0",
+  prezzoCopertinanan: "Il prezzo deve essere un valore >0"
 };
 
 
@@ -31,22 +34,22 @@ export class AddComponent implements OnInit {
     this.librofrm = fb.group(new Libro());
   }
 
-  numberValidator(control: FormControl) {
-    if (!isNaN(control?.value)) {
-      console.log(1 * (control?.value))
-      if ((1 * (control?.value)) <= 0){
-        return {
-          //required: true
-          minorezero: true
-        }
-      }
-      else return {
-        required: false,
-        minorezero: false,
-        number: false
-      }
+  // numberValidator: ValidatorFn = (c: AbstractControl): ValidationErrors | null => {
+  //   if ((c.value) <= 0) {
+  //     return { min: true };
+  //   }
+  //   return null;
+  // };
 
-    }
+  numberValidator(control: FormControl) {
+    if (isNaN(control?.value))
+      return {
+        nan: true
+      }
+    if ((1 * control?.value) <= 0)
+      return {
+        min: true
+      }
     return null;
   }
   ngOnInit(): void {
@@ -55,7 +58,8 @@ export class AddComponent implements OnInit {
       id: [this.libro.id],
       'titolo': new FormControl(this.libro.titolo, [Validators.required, Validators.minLength(4)]),
       'autore': new FormControl(this.libro.autore, [Validators.required]),
-      'prezzoCopertina': new FormControl(this.libro.prezzoCopertina, [Validators.required, this.numberValidator])
+      //      'prezzoCopertina': new FormControl(this.libro.prezzoCopertina, [NumberValidatorsService.min(0)])
+      'prezzoCopertina': new FormControl(this.libro.prezzoCopertina, [this.numberValidator])
     });
   }
 
@@ -81,9 +85,9 @@ export class AddComponent implements OnInit {
       Object.entries(this.librofrm.get(element).errors).forEach(
         ([errorName, errorValue]) => {
 
-          console.log(element, errorValue,errorName)
-          if (errorValue)
-            err = listMsg[element + errorName];
+          console.log(element, errorValue, errorName)
+
+          err = listMsg[element + errorName];
         }
       );
     };
