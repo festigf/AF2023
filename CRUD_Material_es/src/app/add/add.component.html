@@ -1,10 +1,9 @@
-<h2>Add libro</h2>
 <form [formGroup]="librofrm" (ngSubmit)="onSubmit(librofrm.value)">
 
 <mat-card class="example-card">
     <mat-card-header>
-        <mat-card-title>Actions Buttons</mat-card-title>
-        <mat-card-subtitle>Start</mat-card-subtitle>
+        <mat-card-title>Nuovo Libro</mat-card-title>
+        <mat-card-subtitle>Inserire titolo, autore e prezzo</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
     <input type="input" id="id" placeholder="id" formControlName="id" hidden />

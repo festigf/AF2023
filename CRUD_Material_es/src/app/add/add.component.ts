@@ -59,7 +59,7 @@ export class AddComponent implements OnInit {
       'titolo': new FormControl(this.libro.titolo, [Validators.required, Validators.minLength(4)]),
       'autore': new FormControl(this.libro.autore, [Validators.required]),
       //      'prezzoCopertina': new FormControl(this.libro.prezzoCopertina, [NumberValidatorsService.min(0)])
-      'prezzoCopertina': new FormControl(this.libro.prezzoCopertina, [this.numberValidator])
+      'prezzoCopertina': new FormControl(this.libro.prezzoCopertina, [Validators.required,this.numberValidator])
     });
   }
 
