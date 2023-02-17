@@ -1,0 +1,9 @@
+/* Add application styles & import */
+
+.active{
+    background-color: #cccccc;
+    padding: 8px 15px;
+    border-radius: 8px;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
