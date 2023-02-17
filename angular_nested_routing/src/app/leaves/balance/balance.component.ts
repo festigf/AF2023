@@ -1,15 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-balance',
   templateUrl: './balance.component.html',
   styleUrls: ['./balance.component.css']
 })
-export class BalanceComponent implements OnInit {
+export class BalanceComponent  {
 
   constructor() { }
 
-  ngOnInit() {
-  }
 
 }

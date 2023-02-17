@@ -6,6 +6,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { AttendanceComponent } from './attendance/attendance.component';
 import { Page404Component } from './page404/page404.component';
 
+
 const routes: Routes = [
     { path: 'dashboard', component: DashboardComponent },
     { path: 'profile', component: ProfileComponent },

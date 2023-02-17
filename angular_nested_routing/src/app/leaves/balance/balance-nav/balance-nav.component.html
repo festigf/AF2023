@@ -1,0 +1,47 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async)">
+    <mat-toolbar>
+      <span routerLink="/leaves" (click)="barService.sendNext('leaves',true)" class="aligndown">
+        <mat-icon>home</mat-icon>Menu
+      </span>
+    </mat-toolbar>
+
+    <mat-nav-list>
+      <a mat-list-item routerLink="casual" (click)="drawer.toggle()"><mat-icon class="aligndownMenu">group</mat-icon>casual</a>
+      <a mat-list-item routerLink="earned" (click)="drawer.toggle()"><mat-icon class="aligndownMenu">group</mat-icon>earned</a>
+      <a mat-list-item routerLink="earnedxyz" (click)="drawer.toggle()"><mat-icon class="aligndownMenu">group</mat-icon>earnedxyz</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary" >
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+
+      <span routerLink="/leaves" 
+        (click)="barService.sendNext('leaves',true)" 
+        class="aligndown">
+        <mat-icon>
+          home
+        </mat-icon>
+        Module leaves
+      </span>
+      <span class="fillSpace"></span>
+      <span *ngIf="!(isHandset$ | async)" class="buttons">
+        
+        <button mat-raised-button routerLink="casual" color="primary" class="button">apply</button>
+        <button mat-raised-button routerLink="earned" color="primary" class="button">balance</button>
+        <button mat-raised-button routerLink="earnedxyz" color="primary" class="button">earnedxyz</button>
+      </span>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
