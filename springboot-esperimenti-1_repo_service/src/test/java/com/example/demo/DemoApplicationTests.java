@@ -57,7 +57,7 @@ class DemoApplicationTests {
 
 	@Test
 	void contextLoads1() {
-		Employee e = new Employee();
+	
 		
 		this.employeeRepository.deleteById(587191L);
 	}
