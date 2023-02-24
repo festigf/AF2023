@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Optional;
 
-import com.example.domains.Libro;
+import com.example.domains.*;
 import com.example.repositories.LibroRepository;
 import com.example.services.LibroService;
 
@@ -16,6 +16,7 @@ import org.aspectj.lang.annotation.Before;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import com.example.repositories.*;
 
 @SpringBootTest
 class DemoApplicationTests {
@@ -31,6 +32,9 @@ class DemoApplicationTests {
 	
 	@Autowired
 	LibroRepository libroRepository;
+
+	@Autowired
+	EmployeeRepository employeeRepository;
 
 	@Test
 	void contextLoads() {
@@ -51,6 +55,12 @@ class DemoApplicationTests {
 	 assertTrue(true);
 	}
 
+	@Test
+	void contextLoads1() {
+	
+		
+		this.employeeRepository.deleteById(587191L);
+	}
 	
 
 }
